@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка</title>
+
+    <script>
+
+    </script>
+    <style>
+        body {
+            font-family: "Segoe UI";
+            font-size: 18px;
+            border: 0px solid;
+            width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+
+        div {
+            border: 0px solid;
+            padding: 10px;
+        }
+
+        input[type=text],
+        textarea {
+            width: 500px;
+            padding: 0;
+        }
+
+        .right {
+            text-align: right;
+        }
+    </style>
+
+    <script type="text/javascript">
+        /**        
+                      * Функция Скрывает/Показывает блок 
+          
+                      * @author ox2.ru дизайн студия
+          
+                      **/
+
+        function showHide(element_id) {
+            //Если элемент с id-шником element_id существует
+
+            if (document.getElementById(element_id)) {
+                //Записываем ссылку на элемент в переменную obj
+
+                var obj = document.getElementById(element_id);
+                //Если css-свойство display не block, то:
+
+                if (obj.style.display != "block") {
+                    obj.style.display = "block"; //Показываем элемент
+
+                }
+                else obj.style.display = "none"; //Скрываем элемент
+                {
+                    obj.reset()
+
+                }
+            }
+
+            //Если элемент с id-шником element_id не найден, то выводим сообщение
+            else alert("Элемент с id: " + element_id + " не найден!");
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Заявка на аттестацию сварщика</h2>
+    * обязательные поля для заполнения
+    <br>
+    <br>
+    <div class="body">
+
+        <form id="zayavka" method="POST" action="#" autocomplete="on">
+
+            <fieldset>
+                <legend>Контактные данные заявителя</legend>
+
+                <p class="right">
+                    <label for="name">ФИО*:</label>
+                    <input id="name" type="text" required size="70">
+                </p>
+
+                <p class="right">
+                    <label for="telephon">Телефон*:</label>
+                    <input name="telephon" type="tel" size="70">
+                </p>
+
+                <p class="right">
+                    <label for="email">Email*:</label>
+                    <input name="email" type="email" size="70">
+                </p>
+
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <legend>Данные для договора</legend>
+
+                <p class="right">
+                    <label for="name_org">Наименование организации*:</label>
+                    <input name="name_org" type="text" size="71">
+                </p>
+
+                <p class="right">
+                    <label for="adress_ur">Адрес организации (юридический)*:</label>
+                    <textarea rows="1" cols="64" name="adress_ur"></textarea>
+                </p>
+
+
+                <p class="right">
+                    <label for="adress_f">Адрес организации (фактический):</label>
+                    <textarea rows="1" cols="64" name="adress_f"></textarea>
+                </p>
+
+
+                <p class="right">
+                    <label for="name3">Банк*:</label>
+                    <input name="name3" type="text" size="72">
+                </p>
+
+
+
+                <p class="right">
+                    <label for="adress_bank">Адрес банка*:</label>
+                    <textarea rows="1" cols="65" name="adress_bank"></textarea>
+                </p>
+
+
+
+                <p class="right">
+                    <label for="name3">Рассчетный счет*"</label>
+                    <input name="name3" type="text" size="72">
+                </p>
+
+                <p class="right">
+                    <label for="name3"> Код банка*:</label>
+                    <input name="name3" type="text" size="72">
+                </p>
+
+
+                <p class="right">
+                    <label for="name3">УНП*:</label>
+                    <input name="name3" type="text" size="72">
+                </p>
+
+                <p class="right">
+                    <label for="name3"> ОКПО*:</label>
+                    <input name="name3" type="text" size="72">
+                </p>
+
+
+
+                <p class="right">
+                    <label for="adress_bank">Контактные данные (тел., факс, email)*:</label>
+                    <textarea rows="1" cols="65" name="adress_bank"></textarea>
+                </p>
+
+
+                <p class="right">
+                    <label for="name3">ФИО руководителя*</label>
+                    <input name="name3" type="text" size="72">
+                </p>
+
+            </fieldset>
+
+            <br>
+            <br>
+
+
+
+
+            <fieldset>
+                <legend>Тип материала</legend>
+                <input type="checkbox" name="opt1" value="true" onclick="showHide('list')">Лист<br>
+
+                <fieldset id="list" style="display: none">
+                    <legend>Лист</legend>
+
+                    <input type="checkbox" name="opt1" value="true" onclick="showHide('list_s')">Стыковой шов<br>
+                    <fieldset id="list_s" style="display: none">
+                        <legend>Стыковой шов</legend>
+                        <label for="steel_1">Марки сталей*</label>
+                        <input name="steel_1" type="text" size="50" style="width: 200px;">
+                        <br><br>
+                        <label for="steel_1">Толщина, мм</label>
+                        <input name="steel_1_min" type="number" size="1" min="1" placeholder="от" style="width: 50px;">
+                        <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до" style="width: 50px;">
+                        <br><br>
+                        <label>Положение в пространстве</label><br>
+                        <input type="checkbox" name="opt1" value="true" alt="странный шов">PA
+                        <input type="checkbox" name="opt1" value="true">PC
+                        <input type="checkbox" name="opt1" value="true">PF
+                        <input type="checkbox" name="opt1" value="true">PE
+                    </fieldset>
+                    <br>
+
+                    <input type="checkbox" name="opt1" value="true" onclick="showHide('list_u')">Угловой шов<br>
+                    <fieldset id="list_u" style="display: none">
+                        <legend>Уголовой шов</legend>
+                        <label for="steel_1">Марки сталей*</label>
+                        <input name="steel_1" type="text" size="50" style="width: 200px;">
+                        <br><br>
+                        <label for="steel_1">Толщина, мм</label>
+                        <input name="steel_1_min" type="number" size="1" min="1" placeholder="от" style="width: 50px;">
+                        <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до" style="width: 50px;">
+                        <br><br>
+                        <label>Положение в пространстве</label><br>
+                        <input type="checkbox" name="opt1" value="true">PA
+                        <input type="checkbox" name="opt1" value="true">PB
+                        <input type="checkbox" name="opt1" value="true">PC
+                        <input type="checkbox" name="opt1" value="true">PF
+                        <input type="checkbox" name="opt1" value="true">PD
+                        <input type="checkbox" name="opt1" value="true">PE
+                    </fieldset>
+
+                </fieldset>
+
+                <br><br>
+                <input type="checkbox" name="opt1" value="a2" onclick="showHide('tube')">Труба<br>
+
+                <fieldset id="tube" style="display: none">
+                    <legend>Труба</legend>
+
+                    <input type="checkbox" name="opt1" value="true" onclick="showHide('tube_s')">Стыковой шов<br>
+                    <fieldset id="tube_s" style="display: none">
+                        <legend>Стыковой шов</legend>
+                        <label for="steel_1">Марки сталей*</label>
+                        <input name="steel_1" type="text" size="50" style="width: 200px;">
+                        <br><br>
+                        <label for="steel_1">Толщина, мм</label>
+                        <input name="steel_1_min" type="number" size="1" min="1" placeholder="от" style="width: 50px;">
+                        <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до" style="width: 50px;">
+                        <br><br>
+                        <label for="steel_1">Диаметр, мм</label>
+                        <input name="steel_1_min" type="number" size="1" min="1" placeholder="от" style="width: 50px;">
+                        <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до" style="width: 50px;">
+                        <br><br>
+                        <label>Положение в пространстве</label><br>
+                        <input type="checkbox" name="opt1" value="true">PA
+                        <input type="checkbox" name="opt1" value="true">PC
+                        <input type="checkbox" name="opt1" value="true">PF
+                        <input type="checkbox" name="opt1" value="true">PE
+                    </fieldset>
+                    <br>
+
+                    <input type="checkbox" name="opt1" value="true" onclick="showHide('tube_u')">Угловой шов<br>
+                    <fieldset id="tube_u" style="display: none">
+                        <legend>Уголовой шов</legend>
+                        <label for="steel_1">Марки сталей*</label>
+                        <input name="steel_1" type="text" size="50" style="width: 200px;">
+                        <br><br>
+                        <label for="steel_1">Толщина, мм</label>
+                        <input name="steel_1_min" type="number" size="1" min="1" placeholder="от" style="width: 50px;">
+                        <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до" style="width: 50px;">
+                        <br><br>
+                        <label for="steel_1">Диаметр, мм</label>
+                        <input name="steel_1_min" type="number" size="1" min="1" placeholder="от" style="width: 50px;">
+                        <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до" style="width: 50px;">
+                        <br><br>
+                        <label>Положение в пространстве</label><br>
+                        <input type="checkbox" name="opt1" value="true">PA
+                        <input type="checkbox" name="opt1" value="true">PB
+                        <input type="checkbox" name="opt1" value="true">PC
+                        <input type="checkbox" name="opt1" value="true">PF
+                        <input type="checkbox" name="opt1" value="true">PD
+                        <input type="checkbox" name="opt1" value="true">PE
+                    </fieldset>
+                </fieldset>
+
+            </fieldset>
+
+            <br><br>
+
+            <fieldset>
+                <legend>Сведения о сорудниках</legend>
+                <!-- <span id="table"> -->
+                <br>
+                <a href="#" onclick="return dodajWiersz();"><button>Добавить</button></a>
+                <!-- <a href="#" onclick="return rmline(0);"><button>Удалить</button></a> -->
+                <br>
+                <br>
+                <table id="dowolna_nazwa" border=1 cellspacing=1 cellpadding=3>
+                    <tr>
+                        <td>ФИО</td>
+                        <td>Клеймо</td>
+                        <td>Серия и номер паспорта</td>
+                        <td>Дата рождения</td>
+                        <!-- <td><a href="#" onclick="return dodajWiersz();"><button>добавить</button></a></td> -->
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="name[0]" size="50" style="width: 340px;" ></td>
+                        <td><input type="text" name="brand[0]" size="10"style="width: 100px;"></td>
+                        <td><input type="text" name="passport[0]" size="25" style="text-transform: uppercase; width: 220px;"></td>
+                        <td><input type="date" name="date[0]"></td>
+                        <td valign="top"><a href="#" onclick="return rmline(this);" style="width: 150px;"><button>удалить</button></td>
+                    </tr>
+                </table>
+                <!-- <br>
+                    <a href="#" onclick="return dodajWiersz();"><button>Добавить</button></a>
+                    <a href="#" onclick="return rmline(0);"><button>Удалить</button></a> -->
+                <!-- </span> <input type="hidden" name="count" value="0"> -->
+            </fieldset>
+
+            <br>
+            <br>
+
+            <button type="submit">
+                <h3>Отправить заявку</h3>
+            </button>
+            <button type="reset">
+                <h3>Очистить форму</h3>
+            </button>
+
+        </form>
+
+
+    </div>
+
+
+
+
+    <script>
+
+        function dodajWiersz() {
+
+
+            var add_row = document.getElementById("dowolna_nazwa");
+            console.log("РАБОТАЕТ ПРОГА", add_row)
+
+            let c = add_row.querySelectorAll('tr').length;
+            c = --c
+            console.log("РАБОТАЕТ ПРОГА", c)
+
+            var new_row = document.createElement("tr");
+            console.log("РАБОТАЕТ ПРОГА", new_row)
+
+            var tdFIO = document.createElement("td");
+            console.log("РАБОТАЕТ ПРОГА", tdFIO)
+            let input_FIO = document.createElement("input")
+            input_FIO.type = "text"
+            input_FIO.name = "name[" + c + "]"
+            input_FIO.size = "50"
+            console.log("РАБОТАЕТ ПРОГА", input_FIO)
+            tdFIO.appendChild(input_FIO);
+            console.log("РАБОТАЕТ ПРОГА", tdFIO)
+            new_row.appendChild(tdFIO);
+            console.log("РАБОТАЕТ ПРОГА", new_row)
+
+
+            var tdBRAND = document.createElement("td");
+            console.log("РАБОТАЕТ ПРОГА", tdBRAND)
+            let input_brand = document.createElement("input")
+            input_brand.type = "text"
+            input_brand.name = "brand[" + c + "]"
+            input_brand.size = "10"
+            console.log("РАБОТАЕТ ПРОГА", input_brand)
+            tdBRAND.appendChild(input_brand);
+            console.log("РАБОТАЕТ ПРОГА", tdBRAND)
+            new_row.appendChild(tdBRAND);
+            console.log("РАБОТАЕТ ПРОГА", new_row)
+
+            var tdPASSPORT = document.createElement("td");
+            console.log("РАБОТАЕТ ПРОГА", tdPASSPORT)
+            let input_passport = document.createElement("b")
+
+            input_passport.innerHTML = `<input type="text" name="passport[` + c + `]" size="25" style="text-transform: uppercase;">`
+
+            //input_passport.type = "text"
+            //input_passport.name = "passport[" + c + "]"
+            //input_passport.size = "25"
+            //input_brand.style = "text-transform: uppercase;"
+            console.log("РАБОТАЕТ ПРОГА", input_passport)
+            tdPASSPORT.appendChild(input_passport);
+            console.log("РАБОТАЕТ ПРОГА", tdPASSPORT)
+            new_row.appendChild(tdPASSPORT);
+            console.log("РАБОТАЕТ ПРОГА", new_row)
+
+
+            var tdDATE = document.createElement("td");
+            console.log("РАБОТАЕТ ПРОГА", tdDATE)
+            let input_date = document.createElement("input")
+            input_date.type = "date"
+            input_date.name = "date[" + c + "]"
+            console.log("РАБОТАЕТ ПРОГА", input_date)
+            tdDATE.appendChild(input_date);
+            console.log("РАБОТАЕТ ПРОГА", tdDATE)
+            new_row.appendChild(tdDATE);
+            console.log("РАБОТАЕТ ПРОГА", new_row)
+
+
+            var tdBUTT = document.createElement("td");
+            console.log("РАБОТАЕТ ПРОГА", tdBUTT)
+            let element_a = document.createElement("a")
+            element_a.innerHTML = `<a href="#" onclick="return rmline(this);" style="border: 0px;"><button>удалить</button>`
+            console.log("РАБОТАЕТ ПРОГА", element_a)
+            tdBUTT.appendChild(element_a);
+            console.log("РАБОТАЕТ ПРОГА", tdBUTT)
+            new_row.appendChild(tdBUTT);
+            console.log("РАБОТАЕТ ПРОГА", new_row)
+
+
+            var dodac = document.getElementById("dowolna_nazwa");
+            console.log("РАБОТАЕТ ПРОГА", dodac)
+
+            dodac.appendChild(new_row);
+            console.log("РАБОТАЕТ ПРОГА000", dodac)
+
+            return false;
+        }
+
+        function rmline(q) {
+
+            w = q.closest('tr')
+            w.parentElement.removeChild(w)
+            //var del_row = document.getElementById("dowolna_nazwa");
+            //console.log("РАБОТАЕТ ПРОГА", del_row)
+
+            //q = ++q
+
+            //del_row.deleteRow(q)
+
+            //console.log("РАБОТАЕТ ПРОГА", del_row)
+
+
+
+            //var new_row = document.createElement("tr");
+            //console.log("РАБОТАЕТ ПРОГА", new_row)
+
+
+
+            //s = document.getElementById('dowolna_nazwa').innerHTML;
+            //s = s.replace(/[\r\n]/g, '');
+            //re = new RegExp('<tr id="?newline"? nomer="?\\[' + q + '.*?<\\/tr>', 'gi');
+            // это регулярное выражение позволяет выделить строку таблицы с заданным номером 	
+            //s = s.replace(re, '');
+            // заменяем её на пустое место 	
+            //document.getElementById('table').innerHTML = s;
+            return false;
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+
+
+
+
+</html>
