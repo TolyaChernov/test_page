@@ -20,13 +20,14 @@
 
     <style>
         body {
-            font-family: "Segoe UI";
+            font-family: "Arial";
             font-size: 18px;
             border: 0px solid;
-            width: 900px;
+            width: 920px;
             margin-left: auto;
             margin-right: auto;
             padding: 10px;
+            line-height: 18px;
         }
 
         div {
@@ -68,17 +69,17 @@
 
         /* Более темный фон при наведении курсора мыши */
         .btn:hover {
-            background-color: rgb(182, 2, 2);
+            background-color: rgb(197, 83, 83);
             color: rgb(255, 255, 255);
         }
 
         .btn:active {
-            background-color: rgb(182, 2, 182);
+            background-color: rgb(142, 10, 10);
             color: rgb(255, 255, 255);
         }
 
         fieldset {
-            border: 2px solid rgb(36, 37, 36);
+            border: 1px solid rgb(36, 37, 36);
         }
 
         label {
@@ -98,12 +99,12 @@
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 12px;
             /* Можно также использовать любые встроенные и кастомные шрифты, например, отсюда  */
             font-family: Roboto, Verdana, Tahoma, sans;
             /* Тут можно поэкспериментировать */
             padding: 8px 8px;
-            border-radius: 5px;
+            border-radius: 8px;
             color: rgb(0, 0, 0);
         }
 
@@ -130,8 +131,8 @@
         }
 
         .button:hover.blue {
-            background: #0d4d05;
-            color: rgb(255, 255, 255);
+            background: #4ec958;
+            color: rgb(0, 0, 0);
         }
 
         .button:hover.purple {
@@ -144,7 +145,7 @@
         }
 
         .button:active.blue {
-            background: #ff00f2;
+            background: #40ad49;
             color: rgb(15, 14, 109);
         }
 
@@ -195,7 +196,7 @@
             left: 0;
             width: 40px;
             height: 18px;
-            border-radius: 9px;
+            border-radius: 8px;
             background: #CDD1DA;
             box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2);
             transition: .3s;
@@ -215,7 +216,7 @@
         }
 
         .checkbox:checked+label:before {
-            background: #75ee3d;
+            background: #57ec63;
         }
 
         .checkbox:checked+label:after {
@@ -263,9 +264,11 @@
     <div class="body">
         <form id="zayavka" method="POST" action="#" autocomplete="on">
             <fieldset>
-                <legend>Контактные данные заявителя</legend>
+                <legend>
+                    <h4>Контактные данные заявителя</h4>
+                </legend>
                 <p class="right">
-                    <label for="name">ФИО*:</label>
+                    <label for="name">Ф.И.О.*:</label>
                     &ensp;
                     <input id="name" type="text" required>
                 </p>
@@ -283,10 +286,12 @@
                 </p>
             </fieldset>
 
-            <br><br>
+
 
             <fieldset>
-                <legend>Данные для договора</legend>
+                <legend>
+                    <h4>Реквизиты предприятия</h4>
+                </legend>
                 <p class="right">
                     <label for="name_org">Наименование организации*:</label>
                     &ensp;
@@ -348,27 +353,71 @@
                 </p>
 
                 <p class="right">
-                    <label for="name3">ФИО руководителя*</label>
+                    <label for="name3">Ф.И.О. руководителя*</label>
                     &ensp;
                     <input name="name3" type="text" size="72">
                 </p>
             </fieldset>
 
-            <br>
-            <br>
+
+
+
+
+
+
+
+
 
             <fieldset>
-                <legend>Тип материала</legend>
+                <legend>
+                    <h4>Способ сварки</h4>
+                </legend>
+
+
+
+                <table id="list_ug_steel" border=0 cellspacing=1 cellpadding=3>
+                    <tr>
+                        <td>Способ сварки*: </td>
+                        <td><select name="list_ug_steel[0]">
+                                <option value=""></option>
+                                <option value="grp_1">111 / SMAW / ручная дуговая сварка плавящимся покрытым электродом
+                                </option>
+                                <option value="grp_1">121 / SAW / автоматическая дуговая сварка под слоем флюса</option>
+                                <option value="grp_1">135 / MAG / механизированная дуговая сварка в среде активных газов
+                                    сплошной проволокой</option>
+                                <option value="grp_1">136 / MAG / механизированная дуговая сварка в среде активных газов
+                                    порошковой проволокой</option>
+                                <option value="grp_1">141 / TIG / ручная дуговая сварка неплавящимся вольфрамовым
+                                    электродом</option>
+                        </td>
+
+
+                    </tr>
+
+                </table>
+
+
+
+            </fieldset>
+
+
+
+
+
+            <fieldset>
+                <legend>
+                    <h4>Область распространения</h4>
+                </legend>
 
                 <input type="checkbox" class="checkbox" id="list1" />
-                <label for="list1" onclick="showHide('list')">Лист</label>
+                <label for="list1" onclick="showHide('list')">Листы</label>
                 <br><br>
                 <!-- <input type="checkbox" name="opt1" value="true" onclick="showHide('list')">Лист<br> -->
                 <fieldset id="list" style="display: none">
                     <!-- <legend>Лист</legend> -->
 
                     <input type="checkbox" class="checkbox" id="lists" />
-                    <label for="lists" onclick="showHide('list_s')">Стыковой шов</label>
+                    <label for="lists" onclick="showHide('list_s')">Стыковые швы</label>
                     <br>
                     <!-- <input type="checkbox" name="opt1" value="true" onclick="showHide('list_s')">Стыковой шов<br> -->
                     <fieldset id="list_s" style="display: none">
@@ -401,18 +450,27 @@
                             style="width: 50px;">
                         <br>
                         <br>
-                        <label>Положение в пространстве</label><br>
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PA
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PC
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PF
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PE
+                        <label>Пространственные положения</label><br>
+                        <input type="checkbox" name="opt1" id="l_s_pa" value="true" title="нижнее положение"><label
+                            for="l_s_pa" title="нижнее положение">PA</label>
+                        <input type="checkbox" name="opt1" id="l_s_pc" value="true"
+                            title="горизонтальное положение"><label for="l_s_pc"
+                            title="горизонтальное положение">PC</label>
+                        <input type="checkbox" name="opt1" id="l_s_pf" value="true"
+                            title="вертикальное положение, сварка снизу вверх"><label for="l_s_pf"
+                            title="вертикальное положение, сварка снизу вверх">PF</label>
+                        <input type="checkbox" name="opt1" id="l_s_pg" value="true"
+                            title="вертикальное положение, сварка сверху вниз"><label for="l_s_pg"
+                                title="вертикальное положение, сварка сверху вниз">PG</label>
+                            <input type="checkbox" name="opt1" id="l_s_pe" value="true"
+                                title="потолочное положение"><label for="l_s_pe" title="потолочное положение">PE</label>
                     </fieldset>
 
                     <br>
 
 
                     <input type="checkbox" class="checkbox" id="listu" />
-                    <label for="listu" onclick="showHide('list_u')">Угловой шов</label>
+                    <label for="listu" onclick="showHide('list_u')">Угловые швы</label>
 
                     <!-- <input type="checkbox" name="opt1" value="true" onclick="showHide('list_u')">Угловой шов<br> -->
                     <fieldset id="list_u" style="display: none">
@@ -450,13 +508,26 @@
                         <br>
                         <br>
 
-                        <label>Положение в пространстве</label><br>
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PA
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PB
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PC
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PF
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PD
-                        <input type="checkbox" name="opt1" value="true">PE
+                        <label>Пространственные положения</label><br>
+                        <input type="checkbox" name="opt1" id="l_u_pa" value="true" title="нижнее положение"><label
+                            for="l_u_pa" title="нижнее положение">PA</label>
+                        <input type="checkbox" name="opt1" id="l_u_pb" value="true"
+                            title="горизонтально-вертикальное положение"><label for="l_u_pb"
+                            title="горизонтально-вертикальное положение">PB</label>
+                        <input type="checkbox" name="opt1" id="l_u_pc" value="true"
+                            title="горизонтальное положение"><label for="l_u_pc"
+                            title="горизонтальное положение">PC</label>
+                        <input type="checkbox" name="opt1" id="l_u_pf" value="true"
+                            title="вертикальное положение, сварка снизу вверх"><label for="l_u_pf"
+                            title="вертикальное положение, сварка снизу вверх">PF</label>
+                        <input type="checkbox" name="opt1" id="l_u_pg" value="true"
+                            title="вертикальное положение, сварка сверху вниз"><label for="l_u_pg"
+                            title="вертикальное положение, сварка сверху вниз">PG</label>
+                        <input type="checkbox" name="opt1" id="l_u_pd" value="true"
+                            title="горизонтально-потолочное положение"><label for="l_u_pd"
+                            title="горизонтально-потолочное положение">PD</label>
+                        <input type="checkbox" name="opt1" id="l_u_pe" value="true" title="потолочное положение"><label
+                            for="l_u_pe" title="потолочное положение">PE</label>
                     </fieldset>
 
                 </fieldset>
@@ -467,7 +538,7 @@
 
 
                 <input type="checkbox" class="checkbox" id="tube1" />
-                <label for="tube1" onclick="showHide('tube')">Труба</label>
+                <label for="tube1" onclick="showHide('tube')">Трубы</label>
                 <br><br>
 
                 <!-- <input type="checkbox" name="opt1" value="a2" onclick="showHide('tube')">Труба<br> -->
@@ -475,7 +546,7 @@
                     <!-- <legend>Труба</legend> -->
 
                     <input type="checkbox" class="checkbox" id="tubes" />
-                    <label for="tubes" onclick="showHide('tube_s')">Стыковой шов</label>
+                    <label for="tubes" onclick="showHide('tube_s')">Стыковые швы</label>
 
 
                     <!-- <input type="checkbox" name="opt1" value="true" onclick="showHide('tube_s')">Стыковой шов<br> -->
@@ -498,18 +569,35 @@
 
                         <br><br>
 
-                        <label>Положение в пространстве</label><br>
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PA
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PC
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PF
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PE
+                        <label>Пространственные положения</label><br>
+                        <input type="checkbox" name="opt1" id="t_s_pa" value="true" title="нижнее положение"><label
+                            for="t_s_pa" title="нижнее положение">PA</label>
+                        <input type="checkbox" name="opt1" id="t_s_pc" value="true"
+                            title="горизонтальное положение"><label for="t_s_pc"
+                            title="горизонтальное положение">PC</label>
+                        <input type="checkbox" name="opt1" id="t_s_ph" value="true"
+                            title="положение вертикальное, сварка снизу вверх (труба неповоротная)"><label for="t_s_ph"
+                            title="положение вертикальное, сварка снизу вверх (труба неповоротная)">PH</label>
+                        <input type="checkbox" name="opt1" id="t_s_pj" value="true"
+                            title="положение вертикальное, сварка сверху вниз (труба неповоротная)"><label for="t_s_pj"
+                            title="положение вертикальное, сварка сверху вниз (труба неповоротная)">PJ</label>
+                        <input type="checkbox" name="opt1" id="t_s_pe" value="true" title="потолочное положение"><label
+                            for="t_s_pe">PE</label>
+                        <input type="checkbox" name="opt1" id="t_s_hl045" value="true"
+                            title="сварка снизу вверх в наклонном положении под 45° (труба неповоротная)"><label
+                            for="t_s_hl045"
+                            title="сварка снизу вверх в наклонном положении под 45° (труба неповоротная)">H-L045</label>
+                        <input type="checkbox" name="opt1" id="t_s_jl045" value="true"
+                            title="сварка сверху вниз в наклонном положении под 45° (труба неповоротная)"><label
+                            for="t_s_jl045"
+                            title="сварка сверху вниз в наклонном положении под 45° (труба неповоротная)">J-L045</label>
                     </fieldset>
 
                     <br>
                     <br>
 
                     <input type="checkbox" class="checkbox" id="tubeu" />
-                    <label for="tubeu" onclick="showHide('tube_u')">Угловой шов</label>
+                    <label for="tubeu" onclick="showHide('tube_u')">Угловые швы</label>
 
                     <!-- <input type="checkbox" name="opt1" value="true" onclick="showHide('tube_u')">Угловой шов<br> -->
                     <fieldset id="tube_u" style="display: none">
@@ -527,21 +615,144 @@
                         <input name="steel_1_max" type="number" size="1" max="1000" placeholder="до"
                             style="width: 50px;">
                         <br><br>
-                        <label>Положение в пространстве</label><br>
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PA
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PB
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PC
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PF
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PD
-                        <input type="checkbox" name="opt1" value="true" title="подсказка положения">PE
+                        <label>Пространственные положения</label><br>
+                        <input type="checkbox" name="opt1" id="t_u_pa" value="true" title="нижнее положение"><label
+                            for="t_u_pa" title="нижнее положение">PA</label>
+                        <input type="checkbox" name="opt1" id="t_u_pb" value="true"><label for="t_u_pb"
+                            title="горизонтально-вертикальное положение">PB</label>
+                        <input type="checkbox" name="opt1" id="t_u_pc" value="true"
+                            title="горизонтальное положение"><label for="t_u_pc"
+                            title="горизонтальное положение">PC</label>
+                        <input type="checkbox" name="opt1" id="t_u_ph" value="true"
+                            title="положение вертикальное, сварка снизу вверх (труба неповоротная)"><label for="t_u_ph"
+                            title="положение вертикальное, сварка снизу вверх (труба неповоротная)">PH</label>
+                        <input type="checkbox" name="opt1" id="t_u_pj" value="true"
+                            title="положение вертикальное, сварка сверху вниз (труба неповоротная)"><label for="t_u_pj"
+                            title="положение вертикальное, сварка сверху вниз (труба неповоротная)">PJ</label>
+                        <input type="checkbox" name="opt1" id="t_u_pd" value="true"
+                            title="горизонтально-потолочное положение"><label for="t_u_pd"
+                            title="горизонтально-потолочное положение">PD</label>
                     </fieldset>
                 </fieldset>
             </fieldset>
 
-            <br><br>
+
+
 
             <fieldset>
-                <legend>Сведения о сорудниках</legend>
+                <legend>
+                    <h4>Потенциально опасные объекты в области промышленной безопасности и/или эксплуатируемые на них
+                        технические устройства, подведомственные Госпромнадзору МЧС РБ</h4>
+                </legend>
+
+                <input id="obj_1_1" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_1">Объекты и производства с химическими, физико-химическими, физическими процессами,
+                    на которых возможно образование взрывоопасных сред, имеющие в своём составе взрывоопасные
+                    технологические блоки с относительным энергетическим потенциалом более 9 (ПОПБЭТТ, ТКП
+                    45-3.05-167-2009, ТКП 45-3.05-166-2009, ТКП 45-5.04-172-2010)</label><br>
+                <br>
+                <input id="obj_1_2" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_2">Аммиачно-холодильные установки с содержанием аммиака от 1000 до 3000 килограммов
+                    (ПОПБАХУСЖА)</label><br>
+                <br>
+                <input id="obj_1_3" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_3">Элеваторы, склады силосного типа, объекты мукомольного крупяного и комбикормового
+                    производства с минимальной проектной мощностью от 100 т/сутки, на которых осуществляется переработка
+                    зерна и комбикормового сырья , а также элеваторы, склады силосного типа, объекты мукомольного,
+                    крупяного и комбикормового производства, вместимостью от 500 тонн, на которых осуществляется
+                    хранение зерна, продуктов его переработки, комбикормового сырья, в процессе эксплуатации которых
+                    образуются взрывоопасные пылевоздушные смеси с концентрационным пределом взрываемости ниже 65 г/м3,
+                    способные самовозгораться от источника зажигания и самостоятельно гореть после его удаления (ТКП
+                    45-3.05-166-2009)</label><br>
+                <br>
+                <input id="obj_1_4" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_4">Оборудование, работающее под избыточным давлением (ПОПБОРИД)</label><br>
+                <br>
+                <input id="obj_1_5" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_5">Паровые котлы с давлением пара не более 0,07 МПа и водогрейные котлы с температурой
+                    нагрева воды не выше 115°С (ПОПБПКВК)</label><br>
+
+                <br>
+                <input id="obj_1_6" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_6">Грузоподъёмные краны (ПОПБГК, ТКП 45-1.03-103-2009)</label><br>
+                <br>
+                <input id="obj_1_7" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_7">Аттракционы (ПОПБА, СТБ EN 13814-2008)</label><br>
+                <br>
+                <input id="obj_1_8" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_8">Горные выработки диаметром 1200 мм и более, в которых ведутся подземные горные
+                    работы (ПОПБПГВСПС)</label><br>
+                <br>
+                <input id="obj_1_9" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_9">Объекты металлургических и литейных производств (ПОПБПТИРЧЦМСОЭР)</label><br>
+                <br>
+                <input id="obj_1_10" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_1_10">Объекты газораспределительной системы и газопотребления (ПОПБОГ РБ, СП
+                    4.03.01-2020)</label><br>
+
+
+
+
+
+
+
+
+            </fieldset>
+
+
+
+
+
+
+            <fieldset>
+                <legend>
+                    <h4>Объекты, подведомственные Министерству архитектуры и строительства РБ</h4>
+                </legend>
+
+
+                <input id="obj_2_1" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_2_1">Несущие и ограждающие металлоконструкции (ГОСТ 23118-2019, ТКП 45-5.04-121-2009,
+                    ТКП 45-5.04-217-2011)</label><br>
+                <br>
+                <input id="obj_2_2" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_2_2">Тепловые сети (СП 4.02.01-2020)</label><br>
+                <br>
+                <input id="obj_2_3" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_2_3">Наружные сети и сооружения водоснабжения и канализации (ТКП
+                    45-4.01-272-2012)</label><br>
+                <br>
+                <input id="obj_2_4" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_2_4">Внутренние инженерные системы зданий и сооружений (СП 1.03.02-2020)</label><br>
+                <br>
+                <input id="obj_2_5" type="checkbox" name="opt1" value="true" title="подсказка положения">
+                <label for="obj_2_5">Закладные детали железобетонных конструкций (СП 5.03.01-2020, ГОСТ
+                    23118-2019)</label><br>
+
+
+
+
+
+
+            </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <fieldset>
+                <legend>
+                    <h4>Информация об аттестуемых сварщиках</h4>
+                </legend>
                 <br>
                 <!-- <br>
                 <p>Кнопки значки на выбор:
@@ -563,7 +774,7 @@
                 <table id="dowolna_nazwa" border=0 cellspacing=1 cellpadding=3>
                     <tr>
                         <td>
-                            <p class="center">ФИО</p>
+                            <p class="center">Ф.И.О.</p>
                         </td>
                         <td>
                             <p class="center">Клеймо</p>
