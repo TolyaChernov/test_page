@@ -38,7 +38,8 @@
         input[type=text],
         textarea {
             width: 450px;
-            padding: 0;
+            padding: 10;
+            margin: 10;
         }
 
         .right {
@@ -782,31 +783,44 @@
 
                 <br>
 
-                <table id="dowolna_nazwa" border=0 cellspacing=1 cellpadding=3>
-                    <tr>
-                        <td>
+                <table id="dowolna_nazwa" border=0 cellspacing=1 cellpadding=3 style="margin: 0px; padding: 3px;">
+
+                    <tr style="margin: 0px; padding: 0px; height: 0;">
+                        
+                        <td style="width: 30%; height: 30px; margin: 0px; padding: 0px;">
                             <p class="center">Ф.И.О.</p>
                         </td>
-                        <td>
+                        <td style="width: 20%; height: 30px; margin: 0px; padding: 0px;">
                             <p class="center">Клеймо</p>
                         </td>
-                        <td>
+                        <td style="width: 25%; height: 30px; margin: 0px; padding: 0px;">
                             <p class="center">Серия и номер паспорта</p>
                         </td>
-                        <td>
+                        <td style="width: 10%; height: 30px; margin: 0px; padding: 0px;">
                             <p class="center">Дата рождения</p>
+                        </td>
+                        <td style="width: 30px; height: 30px; margin: 0px; padding: 0px;">
+                            <p class="center"> </p>
                         </td>
                     </tr>
 
-                    <tr>
-                        <td><input type="text" name="name[0]" size="50" style="width: 290px;"></td>
-                        <td><input type="text" name="brand[0]" size="10" style="width: 100px;"></td>
-                        <td><input type="text" name="passport[0]" size="25"
-                                style="text-transform: uppercase; width: 220px;"></td>
-                        <td><input type="date" name="date[0]"></td>
+
+                    
+
+                    <tr class="new_tr" style="margin: 0px; padding: 0px; height: 100%;">
+                        <td style="margin: 0px; padding: 0px;"><input type="text" name="name[0]" size="30"
+                                style="width: 100%; height: 100%; margin: 0px; padding-left: 3px;"></td>
+                        <td style="margin: 0px; padding: 0px;"><input type="text" name="brand[0]" size="10"
+                                style="width: 100%; height: 100%; margin: 0px; padding-left: 3px;"></td>
+                        <td style="margin: 0px; padding: 0px;"><input type="text" name="passport[0]" size="25"
+                                style="text-transform: uppercase; width: 100%; height: 100%; margin: 0px; padding-left: 3px;">
+                        </td>
+                        <td style="width: 100%; height: 100%; margin: 0px; padding: 0px;"><input type="date"
+                                name="date[0]" style="width: 95%; height: 100%; margin: 0px; padding-left: 3px;"></td>
                         <td valign="top"><a href="#" onclick="return rmline(this);"><button class="btn"><i
                                         class="fa fa-close"></i></button></td>
                     </tr>
+
 
                 </table>
                 <!-- <br>
@@ -950,10 +964,13 @@
             let c = add_row.querySelectorAll('tr').length;
             c = c
 
+
             console.log("c=", c)
+
 
             var new_row = document.createElement("tr");
             console.log("new_row=", new_row)
+
 
             var tdlabel = document.createElement("td");
             console.log("tdlabel=", tdlabel)
@@ -993,6 +1010,7 @@
             dodac.appendChild(new_row);
             console.log("РАБОТАЕТ ПРОГА000", dodac)
 
+
             return false;
         }
 
@@ -1009,110 +1027,86 @@
 
 
 
+        function dodajWiersz(tableID) 
+
+            {
+                var new_tr = document.querySelector('.new_tr').cloneNode(true);
+                document.getElementById('dowolna_nazwa').appendChild(new_tr);
+
+                return false;
+            }
 
 
-        function dodajWiersz() {
+
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function dodajWiersz333() {
             var add_row = document.getElementById("dowolna_nazwa");
-            console.log("РАБОТАЕТ ПРОГА", add_row)
             let c = add_row.querySelectorAll('tr').length;
             c = --c
-            console.log("РАБОТАЕТ ПРОГА", c)
+
 
             var new_row = document.createElement("tr");
-            console.log("РАБОТАЕТ ПРОГА", new_row)
-            //<td><input type="text" name="name[0]" size="50" style="width: 340px;" ></td>
-            //<td><input type="text" name="brand[0]" size="10"style="width: 100px;"></td>
-            //<td><input type="text" name="passport[0]" size="25" style="text-transform: uppercase; width: 220px;"></td>
 
             var tdFIO = document.createElement("td");
-            console.log("РАБОТАЕТ ПРОГА", tdFIO)
             let input_FIO = document.createElement("b")
-            input_FIO.innerHTML = `<input type="text" name="name[${c}]" size="50" style="width: 290px;" >`
-            //input_FIO.type = "text"
-            //input_FIO.name = "name[" + c + "]"
-            //input_FIO.size = "50"
-            console.log("РАБОТАЕТ ПРОГА", input_FIO)
+            input_FIO.innerHTML = `<input type="text" name="name[${c}]" size="50" style="width: 290px;">`
+
             tdFIO.appendChild(input_FIO);
-            console.log("РАБОТАЕТ ПРОГА", tdFIO)
             new_row.appendChild(tdFIO);
-            console.log("РАБОТАЕТ ПРОГА", new_row)
-            //<td><input type="text" name="name[0]" size="50" style="width: 340px;" ></td>
-            //<td><input type="text" name="brand[0]" size="10"style="width: 100px;"></td>
-            //<td><input type="text" name="passport[0]" size="25" style="text-transform: uppercase; width: 220px;"></td>
 
             var tdBRAND = document.createElement("td");
-            console.log("РАБОТАЕТ ПРОГА", tdBRAND)
             let input_brand = document.createElement("b")
             input_brand.innerHTML = `<input type="text" name="brand[0` + c + `]" size="10" style="width: 100px;">`
-            //input_brand.type = "text"
-            //input_brand.name = "brand[" + c + "]"
-            //input_brand.size = "10"
-            console.log("РАБОТАЕТ ПРОГА", input_brand)
             tdBRAND.appendChild(input_brand);
-            console.log("РАБОТАЕТ ПРОГА", tdBRAND)
             new_row.appendChild(tdBRAND);
-            console.log("РАБОТАЕТ ПРОГА", new_row)
 
             var tdPASSPORT = document.createElement("td");
-            console.log("РАБОТАЕТ ПРОГА", tdPASSPORT)
             let input_passport = document.createElement("b")
             input_passport.innerHTML = `<input type="text" name="passport[` + c + `]" size="25" style="text-transform: uppercase; width: 220px;">`
-            //input_passport.type = "text"
-            //input_passport.name = "passport[" + c + "]"
-            //input_passport.size = "25"
-            //input_brand.style = "text-transform: uppercase;"
-            console.log("РАБОТАЕТ ПРОГА", input_passport)
             tdPASSPORT.appendChild(input_passport);
-            console.log("РАБОТАЕТ ПРОГА", tdPASSPORT)
             new_row.appendChild(tdPASSPORT);
-            console.log("РАБОТАЕТ ПРОГА", new_row)
 
             var tdDATE = document.createElement("td");
-            console.log("РАБОТАЕТ ПРОГА", tdDATE)
             let input_date = document.createElement("input")
             input_date.type = "date"
             input_date.name = "date[" + c + "]"
-            console.log("РАБОТАЕТ ПРОГА", input_date)
             tdDATE.appendChild(input_date);
-            console.log("РАБОТАЕТ ПРОГА", tdDATE)
             new_row.appendChild(tdDATE);
-            console.log("РАБОТАЕТ ПРОГА", new_row)
 
             var tdBUTT = document.createElement("td");
-            console.log("РАБОТАЕТ ПРОГА", tdBUTT)
             let element_a = document.createElement("a")
             element_a.innerHTML = `<a href="#" onclick="return rmline(this);" style="border: 0px;"><button class="btn"><i class="fa fa-close"></i></button>`
-            console.log("РАБОТАЕТ ПРОГА", element_a)
             tdBUTT.appendChild(element_a);
-            console.log("РАБОТАЕТ ПРОГА", tdBUTT)
             new_row.appendChild(tdBUTT);
-            console.log("РАБОТАЕТ ПРОГА", new_row)
 
             var dodac = document.getElementById("dowolna_nazwa");
-            console.log("РАБОТАЕТ ПРОГА", dodac)
             dodac.appendChild(new_row);
-            console.log("РАБОТАЕТ ПРОГА000", dodac)
 
             return false;
         }
+
+
 
         function rmline(q) {
             w = q.closest('tr')
             w.parentElement.removeChild(w)
-            //var del_row = document.getElementById("dowolna_nazwa");
-            //console.log("РАБОТАЕТ ПРОГА", del_row)
-            //q = ++q
-            //del_row.deleteRow(q)
-            //console.log("РАБОТАЕТ ПРОГА", del_row)
-            //var new_row = document.createElement("tr");
-            //console.log("РАБОТАЕТ ПРОГА", new_row)
-            //s = document.getElementById('dowolna_nazwa').innerHTML;
-            //s = s.replace(/[\r\n]/g, '');
-            //re = new RegExp('<tr id="?newline"? nomer="?\\[' + q + '.*?<\\/tr>', 'gi');
-            // это регулярное выражение позволяет выделить строку таблицы с заданным номером 	
-            //s = s.replace(re, '');
-            // заменяем её на пустое место 	
-            //document.getElementById('table').innerHTML = s;
             return false;
         }
 
